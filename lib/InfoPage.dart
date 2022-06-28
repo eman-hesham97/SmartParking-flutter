@@ -12,9 +12,64 @@ class _InfoPageState extends State<InfoPage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      body: new Center(
-        child: new Text("This is slot booking page"),
-      ),
+      body:Stack(
+        children: <Widget>[ 
+          Column(
+            children: [
+              Row(
+                children: [
+                  Container(
+                    height: 230.0,
+                    width: 410.0,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(
+                            '../assets/p1.gif'),
+                        fit: BoxFit.fill,
+                      ),
+                      shape: BoxShape.rectangle,
+                      ),
+                    ),
+                ],
+          ),
+          Row(
+            children: [
+              Container(
+                margin: const EdgeInsets. only(left: 30, top:20),
+                child: Text("Want to book a parking slot in Nasr City?", style: TextStyle(
+                  fontWeight: FontWeight.bold, 
+                  fontSize: 18, 
+                  color: Colors.white, 
+                  ),),
+              ),
+            ]
+          ),
+          Row(
+            children: [
+              Container(
+                  margin: const EdgeInsets. only(left: 150, top:20),
+                  child: FlatButton( 
+                    splashColor: Colors.green, 
+                    color: Colors.blue,
+                    height: 50,
+                    minWidth: 100,
+                  child: Text('Book', style: TextStyle(fontSize: 15.0),),  
+                  onPressed: () {},  
+                ),
+                )
+            ],
+          )
+            ],
+          )
+          
+          // Container(
+          //   child: Text("Want to book a parking slot in Nasr City parking?"),
+          // )
+        ])
+      // new Center(
+      //   child: new Text("Want to book a parking slot in Nasr City parking?"),
+        
+      // ),
     );
   }
 }

@@ -21,10 +21,11 @@ class _AboutUsState extends State<AboutUs> {
             textAlign: TextAlign.center,
             text: TextSpan(
               text: 'About Us \n',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25,),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.black),
               children: <TextSpan>[
                 TextSpan(text: '------------------------------- \n \n'),
-                TextSpan(text: 'Eman Hesham \n \n', style: TextStyle(
+                TextSpan(
+                  text: 'Eman Hesham \n \n', style: TextStyle(
                   fontWeight: FontWeight.bold, 
                   fontSize: 20, 
                   fontStyle: FontStyle.italic,

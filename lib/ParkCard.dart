@@ -21,13 +21,13 @@ class ParkCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 130,
-      width: 351,
+      width: 280,
       child: Stack(
         children: <Widget>[
           Positioned(
             bottom: 5,
             right: !isOdd ? 20 : 0,
-            left: !isOdd ? 0 : 70,
+            left: !isOdd ? 0 : 20,
             // ignore: unnecessary_new
             child: new Container(
                 width: 351,
