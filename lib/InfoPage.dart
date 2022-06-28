@@ -49,8 +49,8 @@ class _InfoPageState extends State<InfoPage> {
               Container(
                   margin: const EdgeInsets. only(left: 150, top:20),
                   child: FlatButton( 
-                    splashColor: Colors.yellow, 
-                    color: Colors.blue,
+                    splashColor: Colors.pink.shade100, 
+                    color: Colors.deepPurple.shade200,
                     height: 50,
                     minWidth: 100,
                   child: Text('Book', style: TextStyle(fontSize: 15.0),),  

@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
                             Container(
                               margin: const EdgeInsets. only(top: 58.0),
                               child: FlatButton( 
-                                splashColor: Colors.green, 
+                                splashColor: Colors.pink.shade100, 
                                 height: 70,
                                 minWidth: 155,
                               child: Text('View Details', style: TextStyle(fontSize: 15.0),),  
@@ -76,7 +76,7 @@ class _HomePageState extends State<HomePage> {
                             Container(
                               margin: const EdgeInsets. only(top: 58.0),
                               child: FlatButton( 
-                                splashColor: Colors.green, 
+                                splashColor: Colors.pink.shade100, 
                                 textColor: Colors.white,
                                 height: 70,
                               child: Text('View Details', style: TextStyle(fontSize: 15.0),),  
@@ -106,7 +106,7 @@ class _HomePageState extends State<HomePage> {
                             Container(
                               margin: const EdgeInsets. only(top: 58.0),
                               child: FlatButton( 
-                                splashColor: Colors.green, 
+                                splashColor: Colors.pink.shade100, 
                                 height: 70,
                                 minWidth: 155,
                               child: Text('View Details', style: TextStyle(fontSize: 15.0),),  
