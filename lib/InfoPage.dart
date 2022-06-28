@@ -13,7 +13,7 @@ class _InfoPageState extends State<InfoPage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       body: new Center(
-        child: new Text("This is info page"),
+        child: new Text("This is slot booking page"),
       ),
     );
   }

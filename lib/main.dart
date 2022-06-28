@@ -1,5 +1,6 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:myapp/AboutUs.dart';
 import 'package:myapp/InfoPage.dart';
 import 'package:myapp/LocationsPage.dart';
 import 'package:myapp/HomePage.dart';
@@ -52,34 +53,16 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  // int _counter = 0;
+  
   int _currentIndex=0;
-  final List<Widget> _children = [LocationsPage(),HomePage(),InfoPage(),];
+  final List<Widget> _children = [LocationsPage(),HomePage(),InfoPage(),AboutUs(),];
   void onTappedBar(int index){
-    print('inside');
+    // print('inside');
     setState(() {
       _currentIndex = index;
     });
   }
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      // _counter++;
-      // children: <Widget>[
-      //     const Text(
-      //       'About Us',
-      //     ),
-      //     // Text(
-      //     //   '$_counter',
-      //     //   style: Theme.of(context).textTheme.headline4,
-      //     // ),
-      //   ];
-    });
-  }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -103,11 +86,6 @@ class _MyHomePageState extends State<MyHomePage> {
         animationDuration: Duration(milliseconds: 300),
         onTap: onTappedBar,
         index: _currentIndex,
-        // currentIndex: _currentIndex,
-        // (index){
-        //   print(index);
-        //   onTappedBar(index);
-        // },
         // ignore: prefer_const_literals_to_create_immutables
         items: [
         // ignore: prefer_const_constructors
@@ -116,6 +94,8 @@ class _MyHomePageState extends State<MyHomePage> {
         Icon(Icons.home),
         // ignore: prefer_const_constructors
         Icon(Icons.add_box_outlined),
+        // ignore: prefer_const_constructors
+        Icon(Icons.info_outline),
       ]), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
