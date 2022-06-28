@@ -49,7 +49,7 @@ class _InfoPageState extends State<InfoPage> {
               Container(
                   margin: const EdgeInsets. only(left: 150, top:20),
                   child: FlatButton( 
-                    splashColor: Colors.green, 
+                    splashColor: Colors.yellow, 
                     color: Colors.blue,
                     height: 50,
                     minWidth: 100,
@@ -61,15 +61,7 @@ class _InfoPageState extends State<InfoPage> {
           )
             ],
           )
-          
-          // Container(
-          //   child: Text("Want to book a parking slot in Nasr City parking?"),
-          // )
         ])
-      // new Center(
-      //   child: new Text("Want to book a parking slot in Nasr City parking?"),
-        
-      // ),
     );
   }
 }

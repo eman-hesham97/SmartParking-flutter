@@ -5,15 +5,11 @@ import 'package:flutter/material.dart';
 class ParkCard extends StatelessWidget {
   final String title;
   final String subtitle;
-  // final String image;
-  // final String background;
   final bool isOdd;
 
   ParkCard(
       this.title,
       this.subtitle,
-      // this.image,
-      // this.background,
       this.isOdd,
       );
 
@@ -34,7 +30,6 @@ class ParkCard extends StatelessWidget {
                 height: 62,
                 // ignore: unnecessary_new
                 decoration: new BoxDecoration(
-                    // borderRadius: r,
                     gradient: LinearGradient(colors: [
                       Colors.deepPurple.shade700,
                       Colors.deepPurple.shade50 ],
@@ -63,7 +58,6 @@ class ParkCard extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           fontStyle: FontStyle.normal,
                           letterSpacing: 0,
-
                         )
                     ),
                     new Text(subtitle,
@@ -74,7 +68,6 @@ class ParkCard extends StatelessWidget {
                           fontWeight: FontWeight.w500,
                           fontStyle: FontStyle.italic,
                           letterSpacing: 0,
-
                         )
                     )
 
@@ -96,7 +89,6 @@ class ParkCard extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                         fontStyle: FontStyle.normal,
                         letterSpacing: 0,
-
                       )
                   ),
                   new Text(subtitle,
@@ -107,80 +99,13 @@ class ParkCard extends StatelessWidget {
                         fontWeight: FontWeight.w500,
                         fontStyle: FontStyle.italic,
                         letterSpacing: 0,
-
                       )
                   )
                 ],
               ),
             ),
-
-          // // Background
-          // isOdd ?
-          // Positioned(
-          //   right: 5,
-          //   top: 20,
-          //   child: Container(
-          //     height: 92,
-          //     width: 200,
-          //     decoration: BoxDecoration(
-          //         // image: DecorationImage(
-          //         //     image: AssetImage(background),
-          //         //     fit: BoxFit.cover
-          //         // )
-          //     ),
-          //   ),
-          // )
-          //     :
-          // Positioned(
-          //   left: 5,
-          //   top: 20,
-          //   child: Container(
-          //     height: 92,
-          //     width: 200,
-          //     decoration: BoxDecoration(
-          //         // image: DecorationImage(
-          //         //     image: AssetImage(background),
-          //         //     fit: BoxFit.cover
-          //         // )
-          //     ),
-          //   ),
-          // ),
-
-
-          // isOdd ?
-          //   Positioned(
-          //   right: 20,
-          //   top: 20,
-          //   child: Container(
-          //     height: 92,
-          //     width: 152,
-          //     decoration: BoxDecoration(
-          //       // image: DecorationImage(
-          //       //     image: AssetImage(image),
-          //       //     fit: BoxFit.cover
-          //       // )
-          //     ),
-          //   ),
-          // )
-          //   :
-          //   Positioned(
-          //   left: 20,
-          //   top: 20,
-          //   child: Container(
-          //     height: 92,
-          //     width: 152,
-          //     decoration: BoxDecoration(
-          //         // image: DecorationImage(
-          //         //     image: AssetImage(image),
-          //         //     fit: BoxFit.cover
-          //         // )
-          //     ),
-          //   ),
-          //   )
-
         ],
       ),
-
     );
   }
 }

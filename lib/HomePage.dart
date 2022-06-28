@@ -11,29 +11,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   @override
-  // Widget build(BuildContext context) {
-  //   return new Scaffold(
-  //     body: new Center(
-  //       child: new Text("This is all parkings info page"),
-  //     ),
-  //   );
-  // }
-
-  @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
 
       body: Stack(
         children: <Widget>[
           // ignore: unnecessary_new
           new Container(
-              // width: 375,
               height: 812,
               child: SafeArea(
                 child: Padding(
@@ -47,7 +31,6 @@ class _HomePageState extends State<HomePage> {
               // ignore: unnecessary_new
               decoration: new BoxDecoration(
                   borderRadius: BorderRadius.circular(31),
-
               )
           ),
           Positioned(
@@ -77,7 +60,6 @@ class _HomePageState extends State<HomePage> {
                               onPressed: () {},  
                             ),
                             decoration: new BoxDecoration(
-                              // borderRadius: BorderRadius.circular(8),
                               gradient: LinearGradient(colors: [
                                 Colors.deepPurple.shade50,
                                 Colors.deepPurple.shade50 ],
@@ -89,7 +71,6 @@ class _HomePageState extends State<HomePage> {
                           )
                             )
                           ]),
-                          // ParkCard('Parking 1', 'Nasr City', true,),
                           // ++++++++++++++++++++++++++++++++++++++++ PARK 2 ++++++++++++++++++++++++++++++++++++++++++++
                           Row(children: <Widget>[
                             Container(
@@ -117,7 +98,6 @@ class _HomePageState extends State<HomePage> {
                               child: ParkCard('Fifth Settlement', 'Fifth Settlement', false,),
                             ), 
                           ]),
-                          // ParkCard('Parking 2', 'Fifth Settlement', false,),
                           // ++++++++++++++++++++++++++++++++++++++++ PARK 3 ++++++++++++++++++++++++++++++++++++++++++++
                           Row(children: <Widget>[
                             Container(
@@ -133,7 +113,6 @@ class _HomePageState extends State<HomePage> {
                               onPressed: () {},  
                             ),
                             decoration: new BoxDecoration(
-                              // borderRadius: BorderRadius.circular(8),
                               gradient: LinearGradient(colors: [
                                 Colors.deepPurple.shade50,
                                 Colors.deepPurple.shade50 ],
@@ -145,9 +124,6 @@ class _HomePageState extends State<HomePage> {
                           )
                             )
                           ]),
-
-                          // ParkCard('Parking 3', 'Maadi', true, ),
-                          // ParkCard('Maruti Swift', 'Rs.4.99 - 8.85 Lakh*', 'assets/carlist4.png', 'assets/background_left.png', false,)
                         ],
                       ),
                     )
@@ -155,7 +131,6 @@ class _HomePageState extends State<HomePage> {
                 ),
                 // ignore: unnecessary_new
                 decoration: new BoxDecoration(
-                    // color: Color(0xffeff5ff),
                     borderRadius: BorderRadius.circular(32),
                 )
             ),

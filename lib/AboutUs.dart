@@ -76,25 +76,9 @@ class _AboutUsState extends State<AboutUs> {
                     }
                 ),
               ],
-            ),
-            // "About Us",  
-            // overflow: TextOverflow.clip,
-            // style: TextStyle(  
-            //   fontSize: 35,  
-            //   color: Colors.white,  
-            //   fontWeight: FontWeight.w700,  
-            //   fontStyle: FontStyle.italic,  
-            //   letterSpacing: 8,  
-            //   wordSpacing: 20,  
-              // backgroundColor: Colors.yellow,  
-              // shadows: [  
-              //   Shadow(color: Colors.blueAccent, offset: Offset(2,1), blurRadius:10)  
-              // ]  
-              
+            ),   
             ),  
-            
           ),
       );  
-    // );
   }
 }
