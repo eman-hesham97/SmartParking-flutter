@@ -1,5 +1,8 @@
+// ignore_for_file: unnecessary_new, prefer_const_constructors
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:myapp/QrCode.dart';
 
 class InfoPage extends StatefulWidget {
   const InfoPage({ Key? key }) : super(key: key);
@@ -49,12 +52,17 @@ class _InfoPageState extends State<InfoPage> {
               Container(
                   margin: const EdgeInsets. only(left: 150, top:20),
                   child: FlatButton( 
-                    splashColor: Colors.pink.shade100, 
+                    splashColor: Colors.yellow, 
                     color: Colors.deepPurple.shade200,
                     height: 50,
                     minWidth: 100,
                   child: Text('Book', style: TextStyle(fontSize: 15.0),),  
-                  onPressed: () {},  
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const QrCode()),
+                      );
+                  },  
                 ),
                 )
             ],

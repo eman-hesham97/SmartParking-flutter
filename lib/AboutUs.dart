@@ -1,4 +1,4 @@
-// ignore_for_file: unnecessary_new
+// ignore_for_file: unnecessary_new, prefer_const_constructors
 import 'package:flutter/gestures.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/cupertino.dart';
@@ -21,6 +21,7 @@ class _AboutUsState extends State<AboutUs> {
             textAlign: TextAlign.center,
             text: TextSpan(
               text: 'About Us \n',
+              // ignore: prefer_const_constructors
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.black),
               children: <TextSpan>[
                 TextSpan(text: '------------------------------- \n \n'),

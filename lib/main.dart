@@ -37,6 +37,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   
   int _currentIndex=0;
+  // ignore: prefer_const_constructors
   final List<Widget> _children = [LocationsPage(),HomePage(),InfoPage(),AboutUs(),];
   void onTappedBar(int index){
     setState(() {
@@ -56,6 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
       bottomNavigationBar: CurvedNavigationBar(
         backgroundColor: Colors.deepPurple,
         color: Colors.deepPurple.shade200,
+        // ignore: prefer_const_constructors
         animationDuration: Duration(milliseconds: 300),
         onTap: onTappedBar,
         index: _currentIndex,

@@ -1,6 +1,9 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables, unnecessary_new, prefer_const_constructors, avoid_unnecessary_containers
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/ParkCard.dart';
+import 'package:myapp/ParkOneInfo.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({ Key? key }) : super(key: key);
@@ -13,7 +16,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: Stack(
         children: <Widget>[
           // ignore: unnecessary_new
@@ -53,11 +55,16 @@ class _HomePageState extends State<HomePage> {
                             Container(
                               margin: const EdgeInsets. only(top: 58.0),
                               child: FlatButton( 
-                                splashColor: Colors.pink.shade100, 
+                                splashColor: Colors.yellow, 
                                 height: 70,
                                 minWidth: 155,
                               child: Text('View Details', style: TextStyle(fontSize: 15.0),),  
-                              onPressed: () {},  
+                              onPressed: () {
+                                Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => const ParkOneInfo()),
+                                );
+                              },  
                             ),
                             decoration: new BoxDecoration(
                               gradient: LinearGradient(colors: [
@@ -76,7 +83,7 @@ class _HomePageState extends State<HomePage> {
                             Container(
                               margin: const EdgeInsets. only(top: 58.0),
                               child: FlatButton( 
-                                splashColor: Colors.pink.shade100, 
+                                splashColor: Colors.yellow, 
                                 textColor: Colors.white,
                                 height: 70,
                               child: Text('View Details', style: TextStyle(fontSize: 15.0),),  
@@ -106,7 +113,7 @@ class _HomePageState extends State<HomePage> {
                             Container(
                               margin: const EdgeInsets. only(top: 58.0),
                               child: FlatButton( 
-                                splashColor: Colors.pink.shade100, 
+                                splashColor: Colors.yellow, 
                                 height: 70,
                                 minWidth: 155,
                               child: Text('View Details', style: TextStyle(fontSize: 15.0),),  
@@ -135,7 +142,6 @@ class _HomePageState extends State<HomePage> {
                 )
             ),
           )
-
         ],
       ),
     );
