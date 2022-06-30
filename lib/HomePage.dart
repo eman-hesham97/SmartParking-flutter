@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/ParkCard.dart';
 import 'package:myapp/ParkOneInfo.dart';
+import 'package:myapp/ParkTwoInfo.dart';
+import 'package:myapp/ParkThreeInfo.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({ Key? key }) : super(key: key);
@@ -87,7 +89,12 @@ class _HomePageState extends State<HomePage> {
                                 textColor: Colors.white,
                                 height: 70,
                               child: Text('View Details', style: TextStyle(fontSize: 15.0),),  
-                              onPressed: () {},  
+                              onPressed: () {
+                                Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => const ParkTwoInfo()),
+                                );
+                              },  
                             ),
                             decoration: new BoxDecoration(
                               // borderRadius: BorderRadius.circular(8),
@@ -117,7 +124,12 @@ class _HomePageState extends State<HomePage> {
                                 height: 70,
                                 minWidth: 155,
                               child: Text('View Details', style: TextStyle(fontSize: 15.0),),  
-                              onPressed: () {},  
+                              onPressed: () {
+                                Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => const ParkThreeInfo()),
+                                );
+                              },  
                             ),
                             decoration: new BoxDecoration(
                               gradient: LinearGradient(colors: [

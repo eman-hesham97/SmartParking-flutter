@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/HomePage.dart';
 
-class ParkOneInfo extends StatefulWidget {
-  const ParkOneInfo({ Key? key }) : super(key: key);
+class ParkTwoInfo extends StatefulWidget {
+  const ParkTwoInfo({ Key? key }) : super(key: key);
 
   @override
-  State<ParkOneInfo> createState() => _ParkOneInfoState();
+  State<ParkTwoInfo> createState() => _ParkTwoInfoState();
 }
 
-class _ParkOneInfoState extends State<ParkOneInfo> {
+class _ParkTwoInfoState extends State<ParkTwoInfo> {
   @override
   Widget build(BuildContext context) {
     Size size =   MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: const Text('Nasr City Parking'),
+        title: const Text('Fifth Settlement Parking'),
       ),
       body: Stack(
         children: [
@@ -29,7 +29,7 @@ class _ParkOneInfoState extends State<ParkOneInfo> {
                 image: DecorationImage(
                   alignment: Alignment.bottomRight,
                   fit: BoxFit.cover,
-                  image: AssetImage('../assets/makram.jpg'))
+                  image: AssetImage('../assets/fifth.jpg'))
               ),
           ),
           ),
@@ -72,7 +72,7 @@ class _ParkOneInfoState extends State<ParkOneInfo> {
                     fontWeight: FontWeight.bold, 
                     color: Colors.white ),
                     ),
-                  Text("Nasr City", style: TextStyle(
+                  Text("Fifth Settlement", style: TextStyle(
                     fontSize: 16,  
                     fontStyle: FontStyle.italic,
                     color: Colors.black ),)
@@ -87,7 +87,7 @@ class _ParkOneInfoState extends State<ParkOneInfo> {
                     fontWeight: FontWeight.bold, 
                     color: Colors.white ),
                     ),
-                  Text("Makram Ebied St.", style: TextStyle(
+                  Text("Seven Stars Mall", style: TextStyle(
                     fontSize: 16,  
                     fontStyle: FontStyle.italic,
                     color: Colors.black ),)
@@ -102,7 +102,7 @@ class _ParkOneInfoState extends State<ParkOneInfo> {
                     fontWeight: FontWeight.bold, 
                     color: Colors.white ),
                     ),
-                  Text("100", style: TextStyle(
+                  Text("200", style: TextStyle(
                     fontSize: 16,  
                     fontStyle: FontStyle.italic,
                     color: Colors.black ),)
@@ -117,7 +117,7 @@ class _ParkOneInfoState extends State<ParkOneInfo> {
                     fontWeight: FontWeight.bold, 
                     color: Colors.white ),
                     ),
-                  Text("5 EGP per hour", style: TextStyle(
+                  Text("10 EGP per hour", style: TextStyle(
                     fontSize: 16,  
                     fontStyle: FontStyle.italic,
                     color: Colors.black ),)
@@ -132,7 +132,7 @@ class _ParkOneInfoState extends State<ParkOneInfo> {
                     fontWeight: FontWeight.bold, 
                     color: Colors.white ),
                     ),
-                  Text("2", style: TextStyle(
+                  Text("3", style: TextStyle(
                     fontSize: 16,  
                     fontStyle: FontStyle.italic,
                     color: Colors.black ),)
