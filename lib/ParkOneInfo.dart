@@ -33,20 +33,6 @@ class _ParkOneInfoState extends State<ParkOneInfo> {
               ),
           ),
           ),
-          Center(
-                child: FlatButton(
-                      color: Colors.deepPurple,
-                      splashColor: Colors.yellow, 
-                      height: 50,
-                      minWidth: 200,
-                      hoverColor: Colors.yellow,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      child: const Text('Go back!'),
-                    ),
-              )
         ],
       ),
       bottomSheet: Container(
@@ -78,13 +64,83 @@ class _ParkOneInfoState extends State<ParkOneInfo> {
                 ),
               ),
               Row(
-                mainAxisSize: MainAxisSize.max,
+                // mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
-                  Text("jogger"),
-                  Text("\$15")
+                  Text("Location: ", style: TextStyle(
+                    fontSize: 20, 
+                    fontWeight: FontWeight.bold, 
+                    color: Colors.white ),
+                    ),
+                  Text("Nasr City", style: TextStyle(
+                    fontSize: 16,  
+                    fontStyle: FontStyle.italic,
+                    color: Colors.black ),)
                 ],
               ),
+              Row(
+                // mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Text("Address: ", style: TextStyle(
+                    fontSize: 20, 
+                    fontWeight: FontWeight.bold, 
+                    color: Colors.white ),
+                    ),
+                  Text("18 Makram Ebied St.", style: TextStyle(
+                    fontSize: 16,  
+                    fontStyle: FontStyle.italic,
+                    color: Colors.black ),)
+                ],
+              ),
+              Row(
+                // mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Text("Total Slots: ", style: TextStyle(
+                    fontSize: 20, 
+                    fontWeight: FontWeight.bold, 
+                    color: Colors.white ),
+                    ),
+                  Text("100", style: TextStyle(
+                    fontSize: 16,  
+                    fontStyle: FontStyle.italic,
+                    color: Colors.black ),)
+                ],
+              ),
+              Row(
+                // mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Text("Fees: ", style: TextStyle(
+                    fontSize: 20, 
+                    fontWeight: FontWeight.bold, 
+                    color: Colors.white ),
+                    ),
+                  Text("5 EGP per hour", style: TextStyle(
+                    fontSize: 16,  
+                    fontStyle: FontStyle.italic,
+                    color: Colors.black ),)
+                ],
+              ),
+              Row(
+                children: [
+                  Container(
+                  margin: const EdgeInsets. only(top: 30.0, left: 110),
+                  child: FlatButton(
+                      color: Colors.deepPurple.shade200,
+                      splashColor: Colors.yellow, 
+                      height: 50,
+                      minWidth: 200,
+                      hoverColor: Colors.pink.shade100,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: const Text('Go back!'),
+                    ),
+                )],
+              )
             ],
           ),
         ),
@@ -92,31 +148,3 @@ class _ParkOneInfoState extends State<ParkOneInfo> {
       );
   }
 }
-
-// body: Stack(
-//         children: <Widget>[
-//           Column(
-//             children: [
-//               Row(
-//                 children: [
-//                   Container(
-//                     margin: const EdgeInsets. only(top: 30.0, left: 110),
-//                     child: FlatButton(
-//                       color: Colors.deepPurple.shade50,
-//                       splashColor: Colors.yellow, 
-//                       height: 50,
-//                       minWidth: 200,
-//                       hoverColor: Colors.yellow,
-//                       onPressed: () {
-//                         Navigator.pop(context);
-//                       },
-//                       child: const Text('Go back!'),
-//                     ),
-//                   )
-//                 ],
-//                 )
-                
-//               ]
-//             )
-//           ]
-//         ), 

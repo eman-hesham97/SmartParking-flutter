@@ -76,6 +76,16 @@ class _AboutUsState extends State<AboutUs> {
                         }
                     }
                 ),
+                 TextSpan(text: '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n ©2022, ITI\n', style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.black54,
+                  ),
+                ),
+                 TextSpan(text: 'IOT Application Development Track\n', style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.black54,
+                  ),
+                ),
               ],
             ),   
             ),  

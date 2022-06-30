@@ -53,6 +53,7 @@ class _InfoPageState extends State<InfoPage> {
                   margin: const EdgeInsets. only(left: 150, top:20),
                   child: FlatButton( 
                     splashColor: Colors.yellow, 
+                    hoverColor: Colors.pink.shade100,
                     color: Colors.deepPurple.shade200,
                     height: 50,
                     minWidth: 100,

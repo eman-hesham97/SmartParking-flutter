@@ -25,7 +25,7 @@ class _QrCodeState extends State<QrCode> {
                       splashColor: Colors.yellow, 
                       height: 50,
                       minWidth: 200,
-                      hoverColor: Colors.yellow,
+                      hoverColor: Colors.pink.shade100,
                       onPressed: () {
                         Navigator.pop(context);
                       },
