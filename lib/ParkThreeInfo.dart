@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:myapp/HomePage.dart';
 
 class ParkThreeInfo extends StatefulWidget {
@@ -19,20 +20,12 @@ class _ParkThreeInfoState extends State<ParkThreeInfo> {
       ),
       body: Stack(
         children: [
-          Positioned(
-            top: 0,
-            child: Container(
-              alignment: Alignment.topCenter,
-              height: size.height - 300,
-              width: 500,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  alignment: Alignment.bottomRight,
-                  fit: BoxFit.cover,
-                  image: AssetImage('../assets/maadi.jpg'))
-              ),
+           GoogleMap(
+        initialCameraPosition: CameraPosition(
+          target: LatLng(29.96669594079009, 31.254391083367214),
+          zoom: 14,
           ),
-          ),
+      ),
         ],
       ),
       bottomSheet: Container(
@@ -141,7 +134,7 @@ class _ParkThreeInfoState extends State<ParkThreeInfo> {
               Row(
                 children: [
                   Container(
-                  margin: const EdgeInsets. only(top: 30.0, left: 110),
+                  margin: const EdgeInsets. only(top: 30.0, left: 80),
                   child: FlatButton(
                       color: Colors.deepPurple.shade200,
                       splashColor: Colors.yellow, 

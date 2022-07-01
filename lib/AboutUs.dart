@@ -35,12 +35,7 @@ class _AboutUsState extends State<AboutUs> {
                 recognizer: TapGestureRecognizer()
                   ..onTap = () async {
                       String url = "https://www.linkedin.com/in/eman-hesham-141673175/";
-                      var urllaunchable = await canLaunch(url); 
-                      if(urllaunchable){
-                          await launch(url);
-                      }else{
-                        print("URL can't be launched.");
-                      }
+                      await launch(url);
                   }),
                 TextSpan(text: 'Shorook Nabil \n \n', style: TextStyle(
                   fontWeight: FontWeight.bold,
@@ -51,12 +46,7 @@ class _AboutUsState extends State<AboutUs> {
                 recognizer: TapGestureRecognizer()
                   ..onTap = () async {
                       String url = "https://www.linkedin.com/in/shorook-abdelbaqi/";
-                      var urllaunchable = await canLaunch(url);  
-                      if(urllaunchable){
-                          await launch(url); 
-                      }else{
-                        print("URL can't be launched.");
-                      }
+                      await launch(url);
                   }
                 ),
                 TextSpan(text: 'Rofida Reda \n', style: TextStyle(
@@ -68,20 +58,16 @@ class _AboutUsState extends State<AboutUs> {
                 recognizer: TapGestureRecognizer()
                     ..onTap = () async {
                         String url = "https://www.linkedin.com/in/rofida-reda/";
-                        var urllaunchable = await canLaunch(url); 
-                        if(urllaunchable){
-                            await launch(url); 
-                        }else{
-                          print("URL can't be launched.");
-                        }
+                        await launch(url);
                     }
+                    
                 ),
-                 TextSpan(text: '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n ©2022, ITI\n', style: TextStyle(
+                TextSpan(text: '\n\n\n\n\n\n\n\n\n ©2022, ITI\n', style: TextStyle(
                   fontSize: 18,
                   color: Colors.black54,
                   ),
                 ),
-                 TextSpan(text: 'IOT Application Development Track\n', style: TextStyle(
+                TextSpan(text: 'IOT Application Development Track\n', style: TextStyle(
                   fontSize: 18,
                   color: Colors.black54,
                   ),

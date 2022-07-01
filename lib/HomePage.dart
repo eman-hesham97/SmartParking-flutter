@@ -55,11 +55,11 @@ class _HomePageState extends State<HomePage> {
                               child: ParkCard('Nasr City', 'Nasr City', true,),
                             ),
                             Container(
-                              margin: const EdgeInsets. only(top: 58.0),
+                              margin: const EdgeInsets. only(top: 57.5),
                               child: FlatButton( 
                                 splashColor: Colors.yellow, 
-                                height: 70,
-                                minWidth: 155,
+                                height: 62,
+                                minWidth: 90,
                               child: Text('View Details', style: TextStyle(fontSize: 15.0),),  
                               onPressed: () {
                                 Navigator.push(
@@ -87,7 +87,7 @@ class _HomePageState extends State<HomePage> {
                               child: FlatButton( 
                                 splashColor: Colors.yellow, 
                                 textColor: Colors.white,
-                                height: 70,
+                                height: 62,
                               child: Text('View Details', style: TextStyle(fontSize: 15.0),),  
                               onPressed: () {
                                 Navigator.push(
@@ -118,11 +118,11 @@ class _HomePageState extends State<HomePage> {
                               child: ParkCard('Maadi', 'Maadi', true, ),
                             ),
                             Container(
-                              margin: const EdgeInsets. only(top: 58.0),
+                              margin: const EdgeInsets. only(top: 57.5),
                               child: FlatButton( 
                                 splashColor: Colors.yellow, 
-                                height: 70,
-                                minWidth: 155,
+                                height: 62,
+                                minWidth: 90,
                               child: Text('View Details', style: TextStyle(fontSize: 15.0),),  
                               onPressed: () {
                                 Navigator.push(

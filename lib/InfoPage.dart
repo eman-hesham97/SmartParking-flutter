@@ -23,15 +23,8 @@ class _InfoPageState extends State<InfoPage> {
                 children: [
                   Container(
                     height: 230.0,
-                    width: 410.0,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage(
-                            '../assets/p1.gif'),
-                        fit: BoxFit.fill,
-                      ),
-                      shape: BoxShape.rectangle,
-                      ),
+                    width: 383.0,
+                      child:  Image.network('https://i.gifer.com/QBs1.gif'),
                     ),
                 ],
           ),
