@@ -22,9 +22,9 @@ class _InfoPageState extends State<InfoPage> {
               Row(
                 children: [
                   Container(
-                    height: 230.0,
+                    height: 250.0,
                     width: 383.0,
-                      child:  Image.network('https://i.gifer.com/QBs1.gif'),
+                      child:  Image.network('https://images.unsplash.com/photo-1590674899484-d5640e854abe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cGFya2luZ3xlbnwwfHwwfHw%3D&w=1000&q=80'),
                     ),
                 ],
           ),

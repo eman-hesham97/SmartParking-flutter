@@ -1,3 +1,4 @@
+import 'dart:collection';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:myapp/HomePage.dart';
@@ -10,6 +11,7 @@ class ParkTwoInfo extends StatefulWidget {
 }
 
 class _ParkTwoInfoState extends State<ParkTwoInfo> {
+  var marker2 = HashSet<Marker>();
   @override
   Widget build(BuildContext context) {
     Size size =   MediaQuery.of(context).size;
@@ -25,6 +27,20 @@ class _ParkTwoInfoState extends State<ParkTwoInfo> {
           target: LatLng(30.00443609369848, 31.424836641041264),
           zoom: 14,
           ),
+          onMapCreated: (GoogleMapController googleMapController){
+            setState(() {
+              marker2.add(Marker(
+                markerId: MarkerId('1'),
+                position: LatLng(30.00443609369848, 31.424836641041264),
+                infoWindow: InfoWindow(
+                  title: '5th Settlement Parking',
+                  snippet: '7 Stars Mall',
+                ),
+                ),
+                );
+            });
+          },
+          markers: marker2,
       ),
         ],
       ),

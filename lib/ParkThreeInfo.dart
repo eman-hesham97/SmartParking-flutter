@@ -1,3 +1,4 @@
+import 'dart:collection';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:myapp/HomePage.dart';
@@ -10,6 +11,7 @@ class ParkThreeInfo extends StatefulWidget {
 }
 
 class _ParkThreeInfoState extends State<ParkThreeInfo> {
+  var marker3 = HashSet<Marker>();
   @override
   Widget build(BuildContext context) {
     Size size =   MediaQuery.of(context).size;
@@ -20,11 +22,25 @@ class _ParkThreeInfoState extends State<ParkThreeInfo> {
       ),
       body: Stack(
         children: [
-           GoogleMap(
+          GoogleMap(
         initialCameraPosition: CameraPosition(
           target: LatLng(29.96669594079009, 31.254391083367214),
           zoom: 14,
           ),
+          onMapCreated: (GoogleMapController googleMapController){
+            setState(() {
+              marker3.add(Marker(
+                markerId: MarkerId('1'),
+                position: LatLng(29.96669594079009, 31.254391083367214),
+                infoWindow: InfoWindow(
+                  title: 'Maadi Parking',
+                  snippet: 'Street 9',
+                ),
+                ),
+                );
+            });
+          },
+          markers: marker3,
       ),
         ],
       ),
