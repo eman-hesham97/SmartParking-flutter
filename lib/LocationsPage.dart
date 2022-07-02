@@ -2,7 +2,7 @@ import 'dart:collection';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-
+import 'package:myapp/InfoPage.dart';
 class LocationsPage extends StatefulWidget {
   const LocationsPage({ Key? key }) : super(key: key);
 
@@ -15,6 +15,7 @@ class _LocationsPageState extends State<LocationsPage> {
   late BitmapDescriptor redMarker;
   late BitmapDescriptor yellowMarker;
   late BitmapDescriptor greenMarker;
+  late BitmapDescriptor getMyMarker;
 
   getRedMarker() async {
     redMarker = await BitmapDescriptor.fromAssetImage(ImageConfiguration.empty, 'assets/images/redMarker.png');
@@ -35,10 +36,18 @@ class _LocationsPageState extends State<LocationsPage> {
     getRedMarker();
     getGreenMarker();
     getYellowMarker();
+    whichIconToShow(availableSlots);
   }
 
-  
-  
+whichIconToShow(availableSlots) async {
+  if (availableSlots <= 20 ) {
+    getMyMarker = await BitmapDescriptor.fromAssetImage(ImageConfiguration.empty, 'assets/images/redMarker.png');
+  } else if(availableSlots  < 50 && availableSlots >20){
+    getMyMarker = await BitmapDescriptor.fromAssetImage(ImageConfiguration.empty, 'assets/images/yellowMarker.png');
+  }else{
+    getMyMarker = await BitmapDescriptor.fromAssetImage(ImageConfiguration.empty, 'assets/images/greenMarker.png');
+  }
+}
 
   @override
   Widget build(BuildContext context) {
@@ -55,9 +64,10 @@ class _LocationsPageState extends State<LocationsPage> {
                 position: LatLng(30.05679628274069, 31.345492890499415),
                 infoWindow: InfoWindow(
                   title: 'Nasr City Parking',
-                  snippet: 'Available Slots: 100',
+                  snippet: 'Available Slots: ' + availableSlots.toString(),
                 ),
-                icon: greenMarker,
+                icon: getMyMarker,
+                // whichIconToShow(availableSlots)
                 ),
                 );
             });

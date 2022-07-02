@@ -3,7 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/QrCode.dart';
-
+var availableSlots = 55;
 class InfoPage extends StatefulWidget {
   const InfoPage({ Key? key }) : super(key: key);
 
@@ -43,27 +43,68 @@ class _InfoPageState extends State<InfoPage> {
           Row(
             children: [
               Container(
-                  margin: const EdgeInsets. only(left: 110, top:20),
+                margin: const EdgeInsets. only(left: 30, top:20),
+                child: Text("Available Slots: ", style: TextStyle(
+                  fontWeight: FontWeight.bold, 
+                  fontSize: 18, 
+                  color: Colors.white, 
+                  ),),
+              ),
+            ]
+          ),
+          Row(
+            children: [
+              Container(
+                  margin: const EdgeInsets. only(left: 115, top:20),
                   child: FlatButton( 
                     splashColor: Colors.yellow, 
                     hoverColor: Colors.pink.shade100,
                     color: Colors.deepPurple.shade200,
                     height: 50,
                     minWidth: 150,
-                  child: Text('Book', style: TextStyle(fontSize: 15.0),),  
+                  child: Text('Book Now', style: TextStyle(fontSize: 15.0),),  
                   onPressed: () {
-                    Navigator.push(
+                    availableSlots = availableSlots - 1 ;
+                    if(availableSlots <= 0){
+                      print("no available slots");
+                      showAlertDialog(context); 
+                    }else{
+                      print(availableSlots);
+                      Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => const QrCode()),
                       );
+                    }
                   },  
                 ),
                 )
             ],
-          )
+          ),
             ],
           )
         ])
     );
   }
+}
+
+void showAlertDialog(BuildContext context) { 
+  Widget okButton = FlatButton(  
+    child: Text("OK"),  
+    onPressed: () {  
+      Navigator.of(context).pop();  
+      }, 
+    );    
+  AlertDialog alert = AlertDialog(  
+    title: Text("Sorry..."),  
+    content: Text("No more available slots in this parking."),  
+    actions: [  
+      okButton,  
+    ],  
+  );    
+  showDialog(  
+    context: context,  
+    builder: (BuildContext context) {  
+      return alert;  
+    },  
+  );  
 }
