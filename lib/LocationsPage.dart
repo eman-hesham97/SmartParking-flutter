@@ -81,7 +81,7 @@ class _LocationsPageState extends State<LocationsPage> {
                   title: 'Maadi Parking',
                   snippet: 'Available Slots: 0',
                 ),
-                icon: redMarker,
+                icon: redMarker, 
                 ),
                 );
             });

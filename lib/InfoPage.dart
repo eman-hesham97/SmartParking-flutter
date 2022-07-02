@@ -43,13 +43,13 @@ class _InfoPageState extends State<InfoPage> {
           Row(
             children: [
               Container(
-                  margin: const EdgeInsets. only(left: 150, top:20),
+                  margin: const EdgeInsets. only(left: 110, top:20),
                   child: FlatButton( 
                     splashColor: Colors.yellow, 
                     hoverColor: Colors.pink.shade100,
                     color: Colors.deepPurple.shade200,
                     height: 50,
-                    minWidth: 100,
+                    minWidth: 150,
                   child: Text('Book', style: TextStyle(fontSize: 15.0),),  
                   onPressed: () {
                     Navigator.push(
