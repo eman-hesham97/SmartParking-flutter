@@ -41,7 +41,13 @@ dependencies:
   dio: ^4.0.6
   flutter_polyline_points: ^1.0.0
   qr_flutter: ^3.2.0
+  mqtt_client: ^9.6.8
+  provider: ^6.0.3
+  flutter_native_splash: ^2.1.6
   
+flutter_native_splash:
+  color: "#FFFFFF"
+  image: assets/images/splash.PNG
 
 dev_dependencies:
   flutter_test:
