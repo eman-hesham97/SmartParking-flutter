@@ -1,3 +1,4 @@
+// ignore_for_file: avoid_print
 import 'package:mqtt_client/mqtt_client.dart';
 import 'package:myapp/MQTT/state/MQTTAppState.dart';
 import 'package:mqtt_client/mqtt_server_client.dart';
@@ -35,6 +36,7 @@ class MQTTManager {
     _client!.onSubscribed = onSubscribed;
 
     final MqttConnectMessage connMess = MqttConnectMessage()
+        .authenticateAs('iot_intake42', 'iot_intake42')
         .withClientIdentifier(_identifier)
         .withWillTopic(
             'willtopic') // If you set this you must set a will message
