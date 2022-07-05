@@ -26,7 +26,7 @@ class MQTTManager {
   void initializeMQTTClient() {
     _client = MqttServerClient(_host, _identifier);
     _client!.port = 1883;
-    _client!.keepAlivePeriod = 20;
+    _client!.keepAlivePeriod = 120;
     _client!.onDisconnected = onDisconnected;
     _client!.secure = false;
     _client!.logging(on: true);
@@ -43,7 +43,7 @@ class MQTTManager {
         .withWillMessage('My Will message')
         .startClean() // Non persistent session for testing
         .withWillQos(MqttQos.atLeastOnce);
-    print('EXAMPLE::Mosquitto client connecting....');
+    print('Car Parking: Master of things connecting...');
     _client!.connectionMessage = connMess;
   }
 
@@ -52,17 +52,17 @@ class MQTTManager {
   void connect() async {
     assert(_client != null);
     try {
-      print('EXAMPLE::Mosquitto start client connecting....');
+      print('Car Parking: MOT start client connecting....');
       _currentState.setAppConnectionState(MQTTAppConnectionState.connecting);
       await _client!.connect();
     } on Exception catch (e) {
-      print('EXAMPLE::client exception - $e');
+      print('Car Parking: client exception - $e');
       disconnect();
     }
   }
 
   void disconnect() {
-    print('Disconnected');
+    print('Car Parking: Disconnected');
     _client!.disconnect();
   }
 
@@ -76,15 +76,15 @@ class MQTTManager {
   /// The subscribed callback
   // happens after subscription
   void onSubscribed(String topic) {
-    print('EXAMPLE::Subscription confirmed for topic $topic');
+    print('Car Parking: Subscription confirmed for topic $topic');
   }
 
   /// The unsolicited disconnect callback
   void onDisconnected() {
-    print('EXAMPLE::OnDisconnected client callback - Client disconnection');
+    print('Car Parking: OnDisconnected client callback - Client disconnection');
     if (_client!.connectionStatus!.returnCode ==
         MqttConnectReturnCode.noneSpecified) {
-      print('EXAMPLE::OnDisconnected callback is solicited, this is correct');
+      print('Car Parking: OnDisconnected callback is solicited, this is correct');
     }
     _currentState.setAppConnectionState(MQTTAppConnectionState.disconnected);
   }
@@ -93,7 +93,7 @@ class MQTTManager {
   /// The successful connect callback
   void onConnected() {
     _currentState.setAppConnectionState(MQTTAppConnectionState.connected);
-    print('EXAMPLE::Mosquitto client connected....');
+    print('Car Parking: MOT client connected....');
     _client!.subscribe(_topic, MqttQos.atLeastOnce);
     _client!.updates!.listen((List<MqttReceivedMessage<MqttMessage?>>? c) {
       // ignore: avoid_as
@@ -104,10 +104,10 @@ class MQTTManager {
           MqttPublishPayload.bytesToStringAsString(recMess.payload.message!);
       _currentState.setReceivedText(pt);
       print(
-          'EXAMPLE::Change notification:: topic is <${c[0].topic}>, payload is <-- $pt -->');
+          'Car Parking: Change notification:: topic is <${c[0].topic}>, payload is <-- $pt -->');
       print('');
     });
     print(
-        'EXAMPLE::OnConnected client callback - Client connection was sucessful');
+        'Car Parking: OnConnected client callback - Client connection was sucessful');
   }
 }

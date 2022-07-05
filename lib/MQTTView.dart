@@ -12,15 +12,18 @@ class MQTTView extends StatefulWidget {
 }
 
 class _MQTTViewState extends State<MQTTView> {
-  final TextEditingController _hostTextController = TextEditingController();
+  // final TextEditingController _hostTextController = TextEditingController();
   final TextEditingController _messageTextController = TextEditingController();
-  final TextEditingController _topicTextController = TextEditingController();
+  // final TextEditingController _topicTextController = TextEditingController();
   late MQTTAppState currentAppState;
   late MQTTManager manager;
 
   @override
   void initState() {
     super.initState();
+    // to automatically coonect on app start
+    WidgetsBinding.instance?.addPostFrameCallback((_) => 
+    currentAppState.getAppConnectionState==MQTTAppConnectionState.disconnected? _configureAndConnect():null);
 
     /*
     _hostTextController.addListener(_printLatestValue);
@@ -31,9 +34,9 @@ class _MQTTViewState extends State<MQTTView> {
 
   @override
   void dispose() {
-    _hostTextController.dispose();
+    // _hostTextController.dispose();
     _messageTextController.dispose();
-    _topicTextController.dispose();
+    // _topicTextController.dispose();
     super.dispose();
   }
 
@@ -77,17 +80,17 @@ class _MQTTViewState extends State<MQTTView> {
       padding: const EdgeInsets.all(20.0),
       child: Column(
         children: <Widget>[
-          _buildTextFieldWith(_hostTextController, 'Enter broker address',
-              currentAppState.getAppConnectionState),
-          const SizedBox(height: 10),
-          _buildTextFieldWith(
-              _topicTextController,
-              'Enter a topic to subscribe or listen',
-              currentAppState.getAppConnectionState),
+          // _buildTextFieldWith(_hostTextController, 'Enter broker address',
+          //     currentAppState.getAppConnectionState),
+          // const SizedBox(height: 10),
+          // _buildTextFieldWith(
+          //     _topicTextController,
+          //     'Enter a topic to subscribe or listen',
+          //     currentAppState.getAppConnectionState),
           const SizedBox(height: 10),
           _buildPublishMessageRow(),
           const SizedBox(height: 10),
-          _buildConnecteButtonFrom(currentAppState.getAppConnectionState)
+          // _buildConnecteButtonFrom(currentAppState.getAppConnectionState)
         ],
       ),
     );
@@ -124,12 +127,13 @@ class _MQTTViewState extends State<MQTTView> {
     if (controller == _messageTextController &&
         state == MQTTAppConnectionState.connected) {
       shouldEnable = true;
-    } else if ((controller == _hostTextController &&
-            state == MQTTAppConnectionState.disconnected) ||
-        (controller == _topicTextController &&
-            state == MQTTAppConnectionState.disconnected)) {
-      shouldEnable = true;
-    }
+    } 
+    // else if ((controller == _hostTextController &&
+    //         state == MQTTAppConnectionState.disconnected) ||
+    //     (controller == _topicTextController &&
+    //         state == MQTTAppConnectionState.disconnected)) {
+    //   shouldEnable = true;
+    // }
     return TextField(
         enabled: shouldEnable,
         controller: controller,
@@ -153,33 +157,33 @@ class _MQTTViewState extends State<MQTTView> {
     );
   }
 
-  Widget _buildConnecteButtonFrom(MQTTAppConnectionState state) {
-    return Row(
-      children: <Widget>[
-        Expanded(
-          // ignore: deprecated_member_use
-          child: RaisedButton(
-            color: Colors.lightBlueAccent,
-            child: const Text('Connect'),
-            onPressed: state == MQTTAppConnectionState.disconnected
-                ? _configureAndConnect
-                : null, //
-          ),
-        ),
-        const SizedBox(width: 10),
-        Expanded(
-          // ignore: deprecated_member_use
-          child: RaisedButton(
-            color: Colors.redAccent,
-            child: const Text('Disconnect'),
-            onPressed: state == MQTTAppConnectionState.connected
-                ? _disconnect
-                : null, //
-          ),
-        ),
-      ],
-    );
-  }
+  // Widget _buildConnecteButtonFrom(MQTTAppConnectionState state) {
+  //   return Row(
+  //     children: <Widget>[
+  //       Expanded(
+  //         // ignore: deprecated_member_use
+  //         child: RaisedButton(
+  //           color: Colors.lightBlueAccent,
+  //           child: const Text('Connect'),
+  //           onPressed: state == MQTTAppConnectionState.disconnected
+  //               ? _configureAndConnect
+  //               : null, //
+  //         ),
+  //       ),
+  //       const SizedBox(width: 10),
+  //       Expanded(
+  //         // ignore: deprecated_member_use
+  //         child: RaisedButton(
+  //           color: Colors.redAccent,
+  //           child: const Text('Disconnect'),
+  //           onPressed: state == MQTTAppConnectionState.connected
+  //               ? _disconnect
+  //               : null, //
+  //         ),
+  //       ),
+  //     ],
+  //   );
+  // }
 
   Widget _buildSendButtonFrom(MQTTAppConnectionState state) {
     // ignore: deprecated_member_use
@@ -211,13 +215,21 @@ class _MQTTViewState extends State<MQTTView> {
     // TODO: Use UUID
     String osPrefix = 'Flutter_iOS';
     if (Platform.isAndroid) {
-      osPrefix = 'Flutter_Android';
+      osPrefix = 'Emy';
     }
     manager = MQTTManager(
-        host: _hostTextController.text,
-        topic: _topicTextController.text,
+        host: "learning.masterofthings.com",
+        topic: "iot_intake42/Parking/entrance/1",
         identifier: osPrefix,
         state: currentAppState);
+    // manager = MQTTServerClientManager(
+    // host: "a2qjty4wsdd1fv-ats.iot.ap-south-1.amazonaws.com",
+    // topic: _topicTextController.text,
+    // //host: demoAWSIOTEndpoint,
+    // //topic: demoAWSIOTTopic,
+    // identifier: osPrefix,
+    // state: currentAppState);
+
     manager.initializeMQTTClient();
     manager.connect();
   }
@@ -229,7 +241,7 @@ class _MQTTViewState extends State<MQTTView> {
   void _publishMessage(String text) {
     String osPrefix = 'Flutter_iOS';
     if (Platform.isAndroid) {
-      osPrefix = 'Flutter_Android';
+      osPrefix = 'Emy';
     }
     final String message = osPrefix + ' says: ' + text;
     manager.publish(message);

@@ -31,7 +31,6 @@ class MyApp extends StatelessWidget {
       primarySwatch: Colors.deepPurple,
       ),
       home: const MyHomePage(title: 'Welcome To Smart Parking App ^-^'),),
-     
       
     );
   }
