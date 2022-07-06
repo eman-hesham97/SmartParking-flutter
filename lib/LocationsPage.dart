@@ -76,15 +76,15 @@ class _LocationsPageState extends State<LocationsPage> {
                 ),
                 );
             });
-            // setState(() async {
+            // setState((){
             //   allParkMarker.add(Marker(
             //     markerId: MarkerId('2'),
             //     position: LatLng(30.00443609369848, 31.424836641041264),
-                // infoWindow: InfoWindow(
-                //   title: '5th Settlement Parking',
-                //   snippet: 'Available Slots: 0',
-                // ),
-                // icon: await BitmapDescriptor.fromAssetImage(ImageConfiguration.empty, 'assets/images/redMarker.png'),
+            //     infoWindow: InfoWindow(
+            //       title: '5th Settlement Parking',
+            //       snippet: 'Available Slots: 0',
+            //     ),
+            //     icon: redMarker,
             //     ),
             //     );
             // });

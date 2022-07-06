@@ -132,21 +132,21 @@ class _ParkOneInfoState extends State<ParkOneInfo> {
                     color: Colors.black ),)
                 ],
               ),
-              Row(
-                // mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Text("Number of Floors: ", style: TextStyle(
-                    fontSize: 20, 
-                    fontWeight: FontWeight.bold, 
-                    color: Colors.white ),
-                    ),
-                  Text("2", style: TextStyle(
-                    fontSize: 16,  
-                    fontStyle: FontStyle.italic,
-                    color: Colors.black ),)
-                ],
-              ),
+              // Row(
+              //   // mainAxisSize: MainAxisSize.max,
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   children: const [
+              //     Text("Number of Floors: ", style: TextStyle(
+              //       fontSize: 20, 
+              //       fontWeight: FontWeight.bold, 
+              //       color: Colors.white ),
+              //       ),
+              //     Text("2", style: TextStyle(
+              //       fontSize: 16,  
+              //       fontStyle: FontStyle.italic,
+              //       color: Colors.black ),)
+              //   ],
+              // ),
               Row(
                 children: [
                   Container(

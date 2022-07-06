@@ -24,6 +24,7 @@ class MQTTAppState with ChangeNotifier{
       }else{
         getMyMarker = await BitmapDescriptor.fromAssetImage(ImageConfiguration.empty, 'assets/images/greenMarker.png');
       };
+      notifyListeners();
       return getMyMarker;
       }
 
