@@ -2,17 +2,16 @@
 import 'package:mqtt_client/mqtt_client.dart';
 import 'package:myapp/MQTT/state/MQTTAppState.dart';
 import 'package:mqtt_client/mqtt_server_client.dart';
+import 'package:flutter/foundation.dart';
+import 'dart:io';
 
 class MQTTManager {
-  // Private instance of client
   final MQTTAppState _currentState;
   MqttServerClient? _client;
   final String _identifier;
   final String _host;
   final String _topic;
-
-  // Constructor
-  // ignore: sort_constructors_first
+  
   MQTTManager(
       {required String host,
       required String topic,
@@ -26,12 +25,11 @@ class MQTTManager {
   void initializeMQTTClient() {
     _client = MqttServerClient(_host, _identifier);
     _client!.port = 1883;
-    _client!.keepAlivePeriod = 120;
+    _client!.keepAlivePeriod = 20;
     _client!.onDisconnected = onDisconnected;
     _client!.secure = false;
     _client!.logging(on: true);
 
-    /// Add the successful connection callback
     _client!.onConnected = onConnected;
     _client!.onSubscribed = onSubscribed;
 
@@ -47,13 +45,10 @@ class MQTTManager {
     _client!.connectionMessage = connMess;
   }
 
-  // Connect to the host
-  // ignore: avoid_void_async
   void connect() async {
     assert(_client != null);
     try {
       print('Car Parking: MOT start client connecting....');
-      _currentState.setAppConnectionState(MQTTAppConnectionState.connecting);
       await _client!.connect();
     } on Exception catch (e) {
       print('Car Parking: client exception - $e');
@@ -66,40 +61,31 @@ class MQTTManager {
     _client!.disconnect();
   }
 
-// to publish data
   void publish(String message) {
+    print("*********************************************************************");
     final MqttClientPayloadBuilder builder = MqttClientPayloadBuilder();
     builder.addString(message);
-    _client!.publishMessage(_topic, MqttQos.exactlyOnce, builder.payload!);
+    _client!.publishMessage("iot_intake42/Parking/flutter", MqttQos.exactlyOnce, builder.payload!);
   }
 
-  /// The subscribed callback
-  // happens after subscription
   void onSubscribed(String topic) {
     print('Car Parking: Subscription confirmed for topic $topic');
   }
 
-  /// The unsolicited disconnect callback
   void onDisconnected() {
     print('Car Parking: OnDisconnected client callback - Client disconnection');
     if (_client!.connectionStatus!.returnCode ==
         MqttConnectReturnCode.noneSpecified) {
       print('Car Parking: OnDisconnected callback is solicited, this is correct');
     }
-    _currentState.setAppConnectionState(MQTTAppConnectionState.disconnected);
   }
 
-  // hena code el subscribe
-  /// The successful connect callback
   void onConnected() {
-    _currentState.setAppConnectionState(MQTTAppConnectionState.connected);
     print('Car Parking: MOT client connected....');
     _client!.subscribe(_topic, MqttQos.atLeastOnce);
     _client!.updates!.listen((List<MqttReceivedMessage<MqttMessage?>>? c) {
       // ignore: avoid_as
       final MqttPublishMessage recMess = c![0].payload as MqttPublishMessage;
-
-      // final MqttPublishMessage recMess = c![0].payload;
       final String pt =
           MqttPublishPayload.bytesToStringAsString(recMess.payload.message!);
       _currentState.setReceivedText(pt);

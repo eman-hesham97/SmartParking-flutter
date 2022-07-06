@@ -5,7 +5,6 @@ import 'package:myapp/InfoPage.dart';
 import 'package:myapp/LocationsPage.dart';
 import 'package:myapp/HomePage.dart';
 import 'package:myapp/MQTT/state/MQTTAppState.dart';
-import 'package:myapp/MQTTView.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider<MQTTAppState>(
         create: (_) => MQTTAppState(),
-        child: MQTTView(),
+        child: InfoPage(),
       ),
       ],
       child: MaterialApp( title: 'Smart Parking',
@@ -48,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
   
   int _currentIndex=0;
   // ignore: prefer_const_constructors
-  final List<Widget> _children = [LocationsPage(),HomePage(),InfoPage(),AboutUs(),MQTTView()]; 
+  final List<Widget> _children = [LocationsPage(),HomePage(),InfoPage(),AboutUs()]; 
   void onTappedBar(int index){
     setState(() {
       _currentIndex = index;
@@ -81,8 +80,6 @@ class _MyHomePageState extends State<MyHomePage> {
         Icon(Icons.add_box_outlined),
         // ignore: prefer_const_constructors
         Icon(Icons.info_outline),
-        // ignore: prefer_const_constructors
-        Icon(Icons.chat),
       ]), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }

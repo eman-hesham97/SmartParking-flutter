@@ -1,23 +1,30 @@
 import 'package:flutter/cupertino.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-enum MQTTAppConnectionState { connected, disconnected, connecting }
 class MQTTAppState with ChangeNotifier{
-  MQTTAppConnectionState _appConnectionState = MQTTAppConnectionState.disconnected;
-  String _receivedText = '';
-  String _historyText = '';
+  int _availableSlots = 0;
+  late BitmapDescriptor getMyMarker;
 
   void setReceivedText(String text) {
-    _receivedText = text;
-    _historyText = _historyText + '\n' + _receivedText;
-    notifyListeners();
-  }
-  void setAppConnectionState(MQTTAppConnectionState state) {
-    _appConnectionState = state;
+    _availableSlots = int.parse(text);
     notifyListeners();
   }
 
-  String get getReceivedText => _receivedText;
-  String get getHistoryText => _historyText;
-  MQTTAppConnectionState get getAppConnectionState => _appConnectionState;
+  int get getAvailableSlots => _availableSlots;
+  void sendAvailableSlots(){
+    _availableSlots = _availableSlots - 1;
+    notifyListeners();
+  }
+
+  Future<BitmapDescriptor> whichIconToShow() async {
+    if (_availableSlots <= 20 ) {
+        getMyMarker = await BitmapDescriptor.fromAssetImage(ImageConfiguration.empty, 'assets/images/redMarker.png');
+      } else if(_availableSlots  < 50 && _availableSlots >20){
+        getMyMarker = await BitmapDescriptor.fromAssetImage(ImageConfiguration.empty, 'assets/images/yellowMarker.png');
+      }else{
+        getMyMarker = await BitmapDescriptor.fromAssetImage(ImageConfiguration.empty, 'assets/images/greenMarker.png');
+      };
+      return getMyMarker;
+      }
 
 }

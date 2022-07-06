@@ -1,9 +1,12 @@
 // ignore_for_file: unnecessary_new, prefer_const_constructors
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:myapp/MQTT/state/MQTTAppState.dart';
 import 'package:myapp/QrCode.dart';
-var availableSlots = 55;
+import 'package:myapp/MQTT/MQTTManager.dart';
+import 'package:provider/provider.dart';
+import 'dart:io' show Platform;
+
 class InfoPage extends StatefulWidget {
   const InfoPage({ Key? key }) : super(key: key);
 
@@ -12,10 +15,18 @@ class InfoPage extends StatefulWidget {
 }
 
 class _InfoPageState extends State<InfoPage> {
+  late MQTTManager manager;
+  late MQTTAppState currentAppState;
+
+
   @override
   Widget build(BuildContext context) {
+    final MQTTAppState appState = Provider.of<MQTTAppState>(context);
+    currentAppState = appState;
+    _configureAndConnect();
     return new Scaffold(
-      body:Stack(
+      body:
+      Stack(
         children: <Widget>[ 
           Column(
             children: [
@@ -44,7 +55,7 @@ class _InfoPageState extends State<InfoPage> {
             children: [
               Container(
                 margin: const EdgeInsets. only(left: 30, top:20),
-                child: Text("Available Slots: ", style: TextStyle(
+                child: Text("Available Slots: " + currentAppState.getAvailableSlots.toString(), style: TextStyle(
                   fontWeight: FontWeight.bold, 
                   fontSize: 18, 
                   color: Colors.white, 
@@ -64,16 +75,19 @@ class _InfoPageState extends State<InfoPage> {
                     minWidth: 150,
                   child: Text('Book Now', style: TextStyle(fontSize: 15.0),),  
                   onPressed: () {
-                    availableSlots = availableSlots - 1 ;
-                    if(availableSlots <= 0){
+                    // availableSlots = availableSlots - 1 ;
+                    if(currentAppState.getAvailableSlots <= 0){
                       print("no available slots");
                       showAlertDialog(context); 
                     }else{
-                      print(availableSlots);
+                      
+                      print(currentAppState.getAvailableSlots);
                       Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => const QrCode()),
                       );
+                      currentAppState.sendAvailableSlots();
+                      _publishMessage(currentAppState.getAvailableSlots.toString());
                     }
                   },  
                 ),
@@ -82,9 +96,26 @@ class _InfoPageState extends State<InfoPage> {
           ),
             ],
           )
-        ])
+        ],
+        ),
     );
   }
+
+  void _configureAndConnect() {
+    manager = MQTTManager(
+        host: "learning.masterofthings.com",
+        topic: "iot_intake42/Parking/entrance/1",
+        identifier: "",
+        state: currentAppState);
+    manager.initializeMQTTClient();
+    manager.connect();
+  }
+
+    void _publishMessage(String text) {
+    final String message = text;
+    manager.publish(message);
+  }
+
 }
 
 void showAlertDialog(BuildContext context) { 

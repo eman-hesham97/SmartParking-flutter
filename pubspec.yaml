@@ -83,6 +83,7 @@ flutter:
     - assets/images/greenMarker.png
     - assets/images/redMarker.png
     - assets/images/yellowMarker.png
+    - assets/images/p.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
